@@ -12,7 +12,10 @@ query = """
 {
   actor {
     account(id: ACCOUNT_ID) {
-      nrql(query: "SELECT count(*) FROM SyntheticCheck WHERE monitorName = 'Nome do seu monitor' SINCE 1 hour ago") {
+      nrql(query: "SELECT count(*) 
+FROM SyntheticCheck 
+WHERE monitorName = 'Nome do seu monitor' AND result = 'SUCCESS' 
+SINCE 1 hour ago") {
         results
       }
     }
